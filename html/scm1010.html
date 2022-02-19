@@ -1,0 +1,315 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta charset="UTF-8">
+  <title>INFAC QMS System</title> 
+
+     <!--
+
+                                                                         _____  _____                                 
+                                                                         0000H  #000#                                 
+    pggmggmggpgpp,      ;gpgmggmggmgpg   _pqpg       _ggp,  _gmgg#Hggq    MM00#  0NN#&     ,pgpmmpg_  yqggg,      gpqg 
+    #0BMMMMM000M&00p    0#0M00MN00QK#0#g  0MB#S      0&Q0` j#N#0#N0M0M#   0#00f  MN&#f   g#N00M000N0g ]NMN0L     KN00& 
+    ]M0000~~~~~M0M#00&   &0000     M00M##  RN00#     R&BB$  4M"^^`~00M0M  Q0&00  \0NN0   M0M0M`  B0000  M0#M0     M00M  
+    4M0B0&      "NM00M6  M0M#&     _Q0N00  =&MM#    j#M0&          p000M  #N#Q#  #0000  #&0M#     #M00f 4M0N0    #BM0f  
+    0M#0M5       Q#N0M&  0B000ppggQNN0NM    #0M06   #0N&      __ppMM&&M#  B0000  #0000  MN0M#mgqpg0NM0   BK&0f   0##F   
+    QNNM&-       4#&M0& jN0#00M0M&QN0#g     RM0&S  g0M0S   ,gDN0Q00000MH  0MM0#  0M00# ]00000M#M#MM0MM   4#MN#  4M00    
+    B0#NM        0M0MQ6 ]B00MP~~"~~0000#,   ~000&  #00&   N0B0@"~  &M008  MMN0E  0NN#f 40000f             #B0N  0N0k    
+    #N0M0      aMM000f  jM00M      ]MM00#    QB00wM00M   ]M0M9     ##M05 ]##0Nt  BK0Nf 400MMg             D00N6#MM#     
+    00000ggqgp0MM0N0@   0M00M,___,p000#M&     00000MMf   Q0M0L     00MM  #000#  Q00M0c  000M##mp,_qg      l0000NMN      
+    J0000N00N0NMMNNM`    B00MN0#000##00MP      ^M0M#0&    "M#N#0&   0M&0  #0M00  4NNM#   ^Q0N0M000#0@       00N0MKf      
+    "^~~""~^~~^"~^       ~~^"~~~~^~"~^`          `~""       "@MM"   `MNM6 "~~~~  "~^~~     `~M#M0M~"`       Q0000&       
+                                                                                                         #0N0N        
+                                                                                                       y0NM00"        
+                                                                                                   ]#0000MNM^         
+                                                                                                   0000#M@F           
+                                                                   
+    Copyright 2022 DBValley Corp. All rights reserved.
+          
+    -->
+    
+    <link rel="icon" type="image/png" href="./images/favicon.ico">
+       
+    <link rel="stylesheet" type="text/css" href="./grid451/codebase/dhtmlx.css" />
+    <link rel="stylesheet" type="text/css" href="./grid451/skins/terrace/dhtmlx.css" />
+    <link rel="stylesheet" type="text/css" href="./grid451/skins/web/dhtmlx.css" />        
+    <link rel="stylesheet" type="text/css" href="./grid451/skins/skyblue/dhtmlx.css" />
+    <script src="./grid451/codebase/dhtmlx.js"></script>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="./include/dbv_eco_rev.css" /> 
+    <link rel="stylesheet" type="text/css" href="./fonts/fontawesome-5.15.3/css/all.css">
+         
+    <link rel="stylesheet" type="text/css" href="./include/jquery-ui-latest/css/cupertino/jquery-ui-1.10.0.custom.min.css" />
+    <script type="text/javascript" src="./include/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="./include/jquery-ui-latest/js/jquery-ui-1.10.0.custom.min.js"></script>
+    <script type="text/javascript" src="./include/jquery-ui-latest/js/jquery.ui.datepicker-ko.js"></script>
+    
+    
+    <script type="text/javascript" id="dym"></script>
+      
+    <style>
+      html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+        overflow: hidden;
+      }
+          
+      .my_footer {
+          padding-top: 9px;
+      }
+      .text_block {
+          /*//font-family: Roboto, Arial, Helvetica;
+          //font-size: 14px;
+          //background-color: #ffffff;
+          padding: 0px 0px;
+          //border: 1px solid #dfdfdf;*/
+      }
+          
+      .grid_hover {
+          background-color:#CFFFD4;
+      }
+      
+      /* Layout setText background */
+      .dhxlayout_base_dhx_skyblue .dhxlayout_cont div.dhx_cell_layout div.dhx_cell_hdr {
+        background: -webkit-linear-gradient(#f5f5f5,#f5f5f5);
+      }
+      
+      /* Layout dhxcelltop_statusbar background */
+      .dhxlayout_base_dhx_skyblue div.dhxcelltop_statusbar div.dhxcont_statusbar{
+        background-color: #f5f5f5;
+      }
+
+      /* Grid 정렬 v_header_style */
+      div.gridbox_dhx_web.gridbox table.hdr td {
+        text-align: center;
+        vertical-align:middle;
+      }
+      
+      /* Grid 정렬 첨부 */
+      div.gridbox_dhx_web.gridbox table.obj.row20px tr td img {
+        display: block;
+        display: inline;
+      }
+          
+    </style>
+
+    <script>
+      function isValidDate(iY,iM,iD){  //날짜유효성 체크 
+          var LD = new Array(31,28,31,30,31,30,31,31,30,31,30,31); 
+          var iM = parseInt(iM,10) - 1; 
+          var iD = parseInt(iD,10); 
+          if((iY%4==0 && iY %100!=0) || iY%400==0){ 
+           LD[1]=29; 
+          } 
+          return(iD >= 1 && iD <= LD[iM]); 
+      }
+        
+      function input_valid(iType,iValue,iNeces,iName,iLen){  //gubun : 체크구분(숫자(num),날짜)(dat)) vl : 값 mand_yn : 필수체크   
+        if(iValue!="" && iType=="num"){  //숫자만 입력 
+            if(isNaN(iValue)){ 
+                alert(iName + "(은)는 필수입니다. 숫자로 입력하여 주십시오."); 
+                return true; 
+            }    
+        } 
+        if(iValue!="" && iType=="yer"){  //숫자만 입력 
+            if(isNaN(iValue)){ 
+                alert(iName + "은(는)4자리숫자로입력하셔야합니다."); 
+                return true; 
+            }  
+            if(iValue.length<4){ 
+                //alert(iName + "에는 4자리 연도값을 입력해 주십시오."); 
+                alert(iName + "은(는)4자리숫자로입력하셔야합니다."); 
+                return true; 
+            }   
+        } 
+        if(iValue!="" && iType=="dat"){  //날짜만 입력     
+              
+            if(isNaN(iValue)){ 
+            //alert(iName + "에는 숫자만 입력하여 주십시오."); 
+            alert(iName + "(은)는필수입니다.숫자로입력하여주십시오."); 
+            return true; 
+            } 
+            if(iValue.length<8){ 
+                //alert(iName + "에는 8자리 날짜값을 입력해 주십시오."); 
+                alert(iName + "에는날짜값을8자리숫자로입력해주십시오."); 
+                return true; 
+            } 
+            var iY = iValue.substr(0,4); 
+            var iM = iValue.substr(4,2); 
+            var iD = iValue.substr(6,2); 
+            var cD = iY + iM + iD; 
+            if(!isValidDate(iY,iM,iD)){  
+                alert(iName + "에 유효하지 않은 날짜가 입력되었습니다.(" + cD + ")"); 
+                return true; 
+            } 
+        } 
+        //필수입력 체크 
+        if(iNeces && iValue==""){ 
+            alert(iName + "은(는) 필수입력값입니다."); 
+            return true; 
+        } 
+        //길이 체크  
+        //cal_byte(iValue,iLen,"수평전개 실시 내용") 
+        if(iValue.length > iLen && iLen > 0){ 
+            //alert(iName + "은(는) 입력범위를 초과하셨습니다."); 
+            alert(iName + "은(는)입력범위를초과하셨습니다."); 
+            return true; 
+        } 
+      }
+      
+      // list_catalog 사용시 두개이상의 셀렉트박스 연결 함수
+      function getCatalogRelation(p_systemcd, p_catalogcd, p_element_id, p_listvalue_u, p_listvalue, p_all_type) {
+        var url = "get_catalog_relation";
+        var param = {"p_systemcd": p_systemcd, "p_catalogcd": p_catalogcd, "p_listvalue_u": p_listvalue_u, "p_listvalue": p_listvalue, "p_all_type": p_all_type};
+        var v_selected = "";
+           
+        $.getJSON(url, param, function(returnData, textStatus) {
+          $("#"+p_element_id+" option").remove();
+          $.each(returnData, function(i) {
+            if (returnData[i].optionValue == p_listvalue) {
+              v_selected = " selected=\"selected\"";
+            }
+            else {
+              v_selected = "";
+            }
+              
+            $("#"+p_element_id+"").append("<option value='"+returnData[i].optionValue+"'"+v_selected+">"+returnData[i].optionName+"</option>");
+          });
+        });
+      }
+        
+    </script>
+
+
+  <script>
+    var myLayout;
+    var sbObj;
+    
+    function doOnLoad() {
+      window.dhx4.ajax.cache = true;
+      myLayout = new dhtmlXLayoutObject(document.body, "1C");
+
+      //myLayout.cells("a").setText("■ Template");
+      myLayout.cells("a").hideHeader();
+      myLayout.cells("a").fixSize(true, true);
+      mygrid = myLayout.cells("a").attachGrid();
+      mygrid.preventIECaching(false);
+      var v_url_a = "SMB30190_data.html";
+      //myLayout.cells("a").progressOn();
+      myLayout.cells("a").attachURL(v_url_a);
+      attachHeader();
+      attachStatusBar();
+      sbObj.setText("자료검색중..");
+    }
+    
+    function attachHeader() {
+      myLayout.attachHeader("top-header");
+    }
+    
+    function attachStatusBar() {
+      if (sbObj != null) return;
+      sbObj = myLayout.attachStatusBar({text:""}); 
+    }
+    
+    function setStatusBarText(rowCount)
+    {
+      sbObj.setText("자료검색을 종료합니다.."+ rowCount +" 건이 검색되었습니다.");
+    }
+
+    function doQuery() {
+      document.getElementById("form1").submit();
+    }
+    
+    function doExcel(){
+      alert("개발중입니다."); return false;
+    }
+    
+    function doCrrec(){  
+      var url = "sample_template.crrec?p_companycd=";  
+      newWnd2 = window.open(url,"sample_templatewindow","top=100, left=100, status=yes, resizable=no, scrollbars=yes, width=1000, height=950");  
+      newWnd2.focus();
+    } 
+    
+    function doCrrec2(){  
+      var url = "sample_template.crrec2?p_companycd=";  
+      newWnd2 = window.open(url,"sample_template2window","top=100, left=100, status=yes, resizable=no, scrollbars=yes, width=1000, height=950");  
+      newWnd2.focus();
+    }
+    
+    $(function() {
+      doOnLoad();
+      
+      $(window).on("resize", function(){
+        myLayout.detachHeader();
+        attachHeader();
+      });
+      
+      $("#p_symd, #p_eymd").datepicker({
+        changeMonth: true,
+        changeYear: true,
+        dateFormat: "yymmdd",
+        buttonImage: "/image/calendar.gif",
+        showOn: "focus", // focus, button, both
+        showAnim: "fadeIn", //explode, fold, slideDown
+        showOptions: {pieces: 1},
+        duration: 500
+      });
+
+    });
+    
+  </script>
+</head>
+<!--월생산투입현황[생산자재]-->
+<body>
+<div id="top-header" style="padding-bottom: 2px;background-color: #ffffff;">
+  <form id="form1" name="form1" method="post" action="sample_template.control">
+  <div id="c00">
+    <div id="c01">
+      <div class="cBox">
+        <div class="cTitle"><label for="p_companycd">업체코드</label></div>
+        <div class="cInput">
+          <select name="p_companycd" id="p_companycd">
+
+          </select>
+        </div>
+      </div>
+
+      <div class="cBox">
+        <div class="cTitle"><label for="p_symd">기준년월</label></div>
+        <div class="cInput">
+          <select name="p_companycd" id="p_companycd">
+
+          </select>
+        </div>
+      </div>
+
+    </div>
+    <div id="c11">
+      <a href="#" target="list" onclick="doQuery(); return false;" class="btn-search buttons">조회</a>
+    </div>
+    <div class="crlf"></div>
+  </div>
+  <div id="c22">
+    <div class="floatL letterNarrow" style="line-height:120%;">
+      <!--<span>※제출월 : </span>
+      <strong class="txtShape txtGray">○</strong>
+      <span>계획</span>
+      <strong class="txtShape txtGray">●</strong>
+      <span>실적</span>
+      <strong class="txtShape txtGreen">●</strong>
+      <span>결재(합격)</span>
+      <strong class="txtShape txtRed">●</strong>
+      <span>결재(불합격)</span>-->
+    </div>
+    <div class="floatR">
+      <a href="#" target="list" onclick="doExcel(); return false;" class="btn-excel buttons">EXL D/L</a>
+    </div>
+    <div class="crlf"></div>
+  </div>
+  </form>
+</div>
+</body>
+</html> 
