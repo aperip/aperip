@@ -6,20 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>study</title>
     <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <!--<script type="text/javascript" id="dym">-->
-    <script type="text/javascript" src="../js/index.js">
+    <script type="text/javascript" src="../js/object_function.js"></script>
+    <script type="text/javascript" src="../js/object.js"></script>
+    <script type="text/javascript" src="../js/prompt.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"></script>
 
 
-    </script>
 </head>
 <body>
     <h1>
         Title First Page
     </h1>
     <p>Mt first Parameter</p>
-    <button id="button1" name="">버튼</button>
-    <input id="inptVal" value="페이지로딩" style="width:500px;">
-
+    <div>
+        <button id="button1" name="">버튼</button>
+        <input id="object_func" value="object_func" style="width:500px;">
+    </div>
+    <div style="width:850px;">
+        <button id="button2" name="">버튼</button>
+        <input id="object" value="object" style="width:500px;">
+        <p id="object_p" style="float:right;"></p>
+    </div>
+    <div>
+        <button id="button3" name="button3">prompt</button>
+        <input id="prompt_cb" value="prompt_cb" style="width:500px;">
+    </div>
+    <!--<div id="myTable"></div>-->
+    <table id="myTable" class="table table-bordered">
+		<thead>
+			<tr><th>No</th><th>지역선택</th></tr>
+		</thead>
+		<tbody>
+			<tr><td>1</td><td>서울</td></tr>
+			<tr><td>2</td><td>경기도</td></tr>
+			<tr><td>3</td><td>충청남도</td></tr>
+			<tr><td>4</td><td>충청북도</td></tr>
+			<tr><td>5</td><td>전라남도</td></tr>
+			<tr><td>6</td><td>전라북도</td></tr>
+			<tr><td>7</td><td>경상남도</td></tr>
+			<tr><td>8</td><td>경상북도</td></tr>
+			<tr><td>9</td><td>강원도</td></tr>
+			<tr><td>10</td><td>제주도</td></tr>
+			<tr><td>99</td><td>해외</td></tr>
+		</tbody>
+    </table>
     
 </body>
 </html>

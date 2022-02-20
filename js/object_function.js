@@ -1,25 +1,4 @@
 
-var numTwo = 2;
-//alert("numTwo="+numTwo);
-
-function Dog(color, name, age, family) {
-
-    this.color = color;
-    this.name = name;
-    this.age = age;
-    this.family = family;
-    this.breed = function() {
-        return this.color + " " + this.family;
-    }
-
-}
-
-var myDog = new Dog("하얀색", "곰", 3, "불독");
-myDog.hasOwnProperty("color"); // true
-myDog.hasOwnProperty("breed"); // true
-myDog.hasOwnProperty("class"); // 상속받은 프로퍼티이므로, false를 반환함.
-//alert(myDog.color);
-
 let list = [];
 
 function familyFont(id, name, value){
@@ -33,7 +12,6 @@ function familyFont(id, name, value){
 
 var fFont = new familyFont('1','2','3');
 
-
 function dataObj(id, name, value){
     this.id = id;
     this.name = name;
@@ -42,7 +20,6 @@ function dataObj(id, name, value){
         return this.id + " " +this.name +" " + this.value;
     }
 }
-
 
 $(function(){
     var list = new Array(3);
@@ -55,11 +32,8 @@ $(function(){
         list[0] = fFont.id;
         list[1] = fFont.name;
         list[2] = fFont.value;
-        //$("#inptVal").val("type="+typeof fFont +"+"+ list[0]+"+"+ list[1]+"+"+ list[2]);
-        $("#inptVal").val(newData.func());
+        $("#object_func").val(newData.func());
 
-        //alert(fFont.id+"+"+fFont.func());
-        //alert(fFont.hasOwnProperty("func")+"1");
     });
 
 });
